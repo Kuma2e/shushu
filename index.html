@@ -1,37 +1,240 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Hub Neon - Static</title>
-<link rel="stylesheet" href="styles.css"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tools Hub - Estilo Neon</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0a0014, #120038, #1a0057);
+      background-size: 300% 300%;
+      animation: gradientMove 14s ease infinite;
+      color: #e8e8e8;
+      margin: 0;
+      padding: 0;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      text-align: center;
+      font-size: 3rem;
+      font-weight: bold;
+      letter-spacing: 4px;
+      backdrop-filter: blur(6px);
+      border-bottom: 2px solid rgba(255, 0, 255, 0.3);
+      text-shadow: 0 0 20px #ff00ff;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 15px;
+      backdrop-filter: blur(4px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: 0.3s;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    nav a:hover {
+      background: rgba(255, 0, 255, 0.3);
+      box-shadow: 0 0 15px #ff00ff;
+      transform: scale(1.1);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: url('https://wallpapersok.com/images/hd/roblox-one-piece-anime-rc6v6htjs1lf5fga.jpg') center/cover fixed;
+      color: #fff;
+      text-shadow: 0 0 18px #000;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 15px;
+      text-shadow: 0 0 30px #00eaff;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 60px auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: linear-gradient(135deg, rgba(25, 0, 40, 0.8), rgba(50, 0, 90, 0.8));
+      padding: 30px;
+      border-radius: 22px;
+      box-shadow: 0 0 25px rgba(255, 0, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-12px) scale(1.04);
+      box-shadow: 0 0 45px rgba(0, 217, 255, 0.4);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: -40%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 200, 255, 0.25), transparent 70%);
+      opacity: 0;
+      transition: 0.4s;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-title {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      color: #00eaff;
+      text-shadow: 0 0 10px #00eaff;
+    }
+
+    .card-desc {
+      font-size: 1.1rem;
+      opacity: 0.85;
+      line-height: 1.5;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.6rem;
+      margin-top: 60px;
+      margin-bottom: 20px;
+      color: #ff00ff;
+      text-shadow: 0 0 20px #ff00ff;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .tool-box {
+      padding: 25px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      text-align: center;
+      font-size: 1.2rem;
+      transition: 0.3s;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .tool-box:hover {
+      background: rgba(255, 0, 255, 0.25);
+      transform: scale(1.07);
+      box-shadow: 0 0 20px #ff00ff;
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 25px;
+      text-align: center;
+      margin-top: 80px;
+      color: #aaa;
+      font-size: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
 </head>
 <body>
-<header>Hub de Tools Neon</header>
-<nav>
-  <a href="#tools">Tools</a>
-  <a href="#categorias">Categorías</a>
-  <a href="#info">Info</a>
-</nav>
-<section class="hero">
-  <h1>Bienvenido al Hub Neon</h1>
-  <p>Versión estática sin login.</p>
-</section>
-<h2 class="section-title" id="tools">Tools</h2>
-<div class="grid">
-  <div class="card">Roblox Tool</div>
-  <div class="card">Crunchyroll Tool</div>
-  <div class="card">Disney+ Tool</div>
-  <div class="card">Steam Tool</div>
-</div>
-<h2 class="section-title" id="categorias">Categorías</h2>
-<div class="grid">
-  <div class="card">Streaming</div>
-  <div class="card">Juegos</div>
-  <div class="card">Utilidades</div>
-</div>
-<h2 class="section-title" id="info">Información</h2>
-<p style="text-align:center;padding:20px;">Página neon estática lista para subir a Vercel.</p>
-<footer>© 2025 Hub Neon Static</footer>
+  <header>Hub de Tools Neon</header>
+
+  <nav>
+    <a href="#tools">Tools</a>
+    <a href="#categorias">Categorías</a>
+    <a href="#info">Información</a>
+  </nav>
+
+  <section class="hero">
+    <h1>Bienvenido a la web OFC de Cloudy</h1>
+    <p>Una web diseñada para aquellos programadores/diseñadores entusiastas.</p>
+  </section>
+
+  <h2 class="section-title" id="tools">Tools Destacadas</h2>
+  <div class="container">
+    <div class="card">
+      <div class="card-title">Roblox Tool</div>
+      <div class="card-desc">Vista conceptual avanzada con estilo cyberpunk.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Crunchyroll Tool</div>
+      <div class="card-desc">Diseño temático anime en estética futurista.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Disney+ Tool</div>
+      <div class="card-desc">Inspirado en interfaces premium con luces neon.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Steam Tool</div>
+      <div class="card-desc">Gaming vibes con efectos brillantes y glow.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Tool Extra</div>
+      <div class="card-desc">Perfecto para añadir cualquier tool ficticia.</div>
+    </div>
+  </div>
+
+  <h2 class="section-title" id="categorias">Categorías Populares</h2>
+  <div class="tools-grid">
+    <div class="tool-box">Streaming</div>
+    <div class="tool-box">Juegos</div>
+    <div class="tool-box">Utilidades</div>
+    <div class="tool-box">Social</div>
+    <div class="tool-box">Seguridad</div>
+  </div>
+
+  <h2 class="section-title" id="info">Información Extra</h2>
+  <div style="max-width: 900px; margin: 0 auto; padding: 20px; font-size: 1.2rem; line-height: 1.7; text-align:center;">
+    Esta pagina es solo para fines educaivos sci-fi.
+  </div>
+
+  <footer>
+    © 2025 Cloudy Company, todos los derechos reservados.
+  </footer>
 </body>
 </html>
